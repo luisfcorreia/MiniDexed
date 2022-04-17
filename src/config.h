@@ -83,6 +83,12 @@ public:
 	unsigned GetLCDPinData6 (void) const;
 	unsigned GetLCDPinData7 (void) const;
 
+	// HD44780 LCD I2C
+	// GPIO pin numbers are chip numbers, not header positions
+	bool GetLCDI2CEnabled (void) const;
+	unsigned GetLCDI2CPort (void) const;
+
+
 	// KY-040 Rotary Encoder
 	// GPIO pin numbers are chip numbers, not header positions
 	bool GetEncoderEnabled (void) const;
@@ -113,6 +119,9 @@ private:
 	unsigned m_nLCDPinData5;
 	unsigned m_nLCDPinData6;
 	unsigned m_nLCDPinData7;
+
+	bool m_bLCDI2CEnabled;
+	unsigned m_nLCDI2CPort;
 
 	bool m_bEncoderEnabled;
 	unsigned m_nEncoderPinClock;
