@@ -2,7 +2,7 @@
 
 ![minidexed](https://user-images.githubusercontent.com/2480569/161813414-bb156a1c-efec-44c0-802a-8926412a08e0.jpg)
 
-MiniDexed is a FM synthesizer closely modeled on the famous DX7 by a well-known Japanese manufacturer running on a bare metal Raspberry Pi (without a Linux kernel or operating system). On Pi Raspberry 2 and larger, it can run 8 tone generators, basically creating an open source equivalent of the TX816/TX802 (8 DX7 instances without the keyboard in one box).
+MiniDexed is a FM synthesizer closely modeled on the famous DX7 by a well-known Japanese manufacturer running on a bare metal Raspberry Pi (without a Linux kernel or operating system). On Raspberry Pi 2 and larger, it can run 8 tone generators, basically creating an open source equivalent of the TX816/TX802 (8 DX7 instances without the keyboard in one box).
 
 ## Features
 
@@ -23,6 +23,12 @@ TODO
 
 - [ ] Make it possible to assign voice parameters to sliders and knobs on MIDI controllers
 - [ ] https://github.com/probonopd/MiniDexed/issues
+
+## Introduction
+
+Video about this project by [Floyd Steinberg](https://www.youtube.com/watch?v=Z3t94ceMHJo):
+
+[![](https://i.ytimg.com/vi/Z3t94ceMHJo/sddefault.jpg)](https://www.youtube.com/watch?v=Z3t94ceMHJo)
 
 ## System Requirements
 
@@ -87,7 +93,7 @@ Compiled versions are available on [GitHub Releases](../../releases). Just downl
 
 ## Building locally
 
-If you need to build the source code yoursel, you can use the following example, e.g., to build for Raspberry Pi 4 on a Ubuntu 20.04 build system. See [`build.yml`](../../tree/main/.github/workflows/build.yml) for complete build steps that create versions for Raspberry Pi 1, 2, 3,and 4 in 32-bit and 64-bit as required.
+Normal users do not need to build the source code, as compiled versions are provided for download (see above). If you are a developer and want to build the source code yourself, you can use the following example, e.g., to build for Raspberry Pi 4 on a Ubuntu 20.04 build system. See [`build.yml`](../../tree/main/.github/workflows/build.yml) for complete build steps that create versions for Raspberry Pi 1, 2, 3,and 4 in 32-bit and 64-bit as required.
 
 ```
 # Choose your RPi
@@ -155,9 +161,18 @@ rm -r boot
 sudo dd if="${IMG}" of=/dev/mmcblk0 bs=512k status=progress && sync
 ```
 
+## Discussions
+
+https://github.com/probonopd/MiniDexed/discussions
+
+## Wiki
+
+https://github.com/probonopd/MiniDexed/wiki
+
 ## Acknowledgements
 
-* [asb2m10](https://github.com/asb2m10/dexed) for the [Dexed](https://github.com/asb2m10/dexed) sound engine
+* [raphlinus](https://github.com/raphlinus) for the [MSFA](https://github.com/google/music-synthesizer-for-android) sound engine
+* [asb2m10](https://github.com/asb2m10/dexed) for the [Dexed](https://github.com/asb2m10/dexed) software
 * [dcoredump](https://github.com/dcoredump) for https://codeberg.org/dcoredump/Synth_Dexed, a port of Dexed for embedded systems
-* [rsta2](https://github.com/rsta2) for https://github.com/rsta2/circle, the library to run code on bare betal Raspberry Pi (without a Linux kernel or operating system) and for the initial MiniDexed code 
+* [rsta2](https://github.com/rsta2) for https://github.com/rsta2/circle, the library to run code on bare betal Raspberry Pi (without a Linux kernel or operating system) and for the bulk of the MiniDexed code 
 * [smuehlst](https://github.com/smuehlst) for https://github.com/smuehlst/circle-stdlib, a version with Standard C and C++ library support
