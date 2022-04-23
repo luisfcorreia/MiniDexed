@@ -48,6 +48,26 @@ void CConfig::Load (void)
 
 	m_nMIDIBaudRate = m_Properties.GetNumber ("MIDIBaudRate", 31250);
 
+	const char *pMIDIThru = m_Properties.GetString ("MIDIThru");
+	if (pMIDIThru)
+	{
+		std::string Arg (pMIDIThru);
+
+		size_t nPos = Arg.find (',');
+		if (nPos != std::string::npos)
+		{
+			m_MIDIThruIn = Arg.substr (0, nPos);
+			m_MIDIThruOut = Arg.substr (nPos+1);
+
+			if (   m_MIDIThruIn.empty ()
+			    || m_MIDIThruOut.empty ())
+			{
+				m_MIDIThruIn.clear ();
+				m_MIDIThruOut.clear ();
+			}
+		}
+	}
+
 	m_bLCDEnabled = m_Properties.GetNumber ("LCDEnabled", 0) != 0;
 	m_nLCDPinEnable = m_Properties.GetNumber ("LCDPinEnable", 17);
 	m_nLCDPinRegisterSelect = m_Properties.GetNumber ("LCDPinRegisterSelect", 27);
@@ -97,6 +117,16 @@ bool CConfig::GetChannelsSwapped (void) const
 unsigned CConfig::GetMIDIBaudRate (void) const
 {
 	return m_nMIDIBaudRate;
+}
+
+const char *CConfig::GetMIDIThruIn (void) const
+{
+	return m_MIDIThruIn.c_str ();
+}
+
+const char *CConfig::GetMIDIThruOut (void) const
+{
+	return m_MIDIThruOut.c_str ();
 }
 
 bool CConfig::GetLCDEnabled (void) const
