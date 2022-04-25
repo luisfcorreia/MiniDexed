@@ -73,6 +73,8 @@ public:
 	unsigned GetMIDIBaudRate (void) const;
 	const char *GetMIDIThruIn (void) const;	// "" if not specified
 	const char *GetMIDIThruOut (void) const;	// "" if not specified
+	bool GetMIDIRXProgramChange (void) const;	// true if not specified
+	
 
 	// HD44780 LCD
 	// GPIO pin numbers are chip numbers, not header positions
@@ -114,6 +116,7 @@ private:
 	unsigned m_nMIDIBaudRate;
 	std::string m_MIDIThruIn;
 	std::string m_MIDIThruOut;
+	bool m_bMIDIRXProgramChange;
 
 	bool m_bLCDEnabled;
 	unsigned m_nLCDPinEnable;
